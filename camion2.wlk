@@ -1,7 +1,10 @@
 object camion {
     const carga = []
-
-    method cargar(unaCosa) {carga.add(unaCosa)}
+// polimorfismo: paso un mensaje, delego la responsabilidad y cada objeto lo resuelve como puede.
+    method cargar(unaCosa) {
+        carga.add(unaCosa) 
+        unaCosa.consecuenciaDeLaCarga()
+    }
     method descargar(unaCosa) {carga.remove(unaCosa)}
     method pesoTotal() = 1000 + self.cargaTotal()
     method cargaTotal() = carga.sum({c => c.peso()})
